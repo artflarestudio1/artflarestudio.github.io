@@ -223,37 +223,124 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <p>Some of our recent creations and digital artwork.</p>
+   <section id="portfolio" class="portfolio">
+  <h2>Portfolio</h2>
+  <p>Some of our recent creations and digital artwork.</p>
 
-      <div class="gallery">
-        <div class="gallery-item">
-          <img src="images/Design 1.jpg" alt="Design 1" />
-          <div class="caption">Creative Post Design</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/Design 2.jpg" alt="Design 2" />
-          <div class="caption">Bussines Flyer Design</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/Design 3.jpg" alt="Design 3" />
-          <div class="caption">Creative Branding Design</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/Design 4.jpg" alt="Design 4" />
-          <div class="caption">Minimalist Poster Concept</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/Design 5.jpg" alt="Design 5" />
-          <div class="caption">Creative Branding Design</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/Design 6.jpg" alt="Design 6" />
-          <div class="caption">Creative Post Design</div>
-        </div>
-      </div>
-    </section>
+  <div class="portfolio-grid">
+    <div class="portfolio-item" onclick="openModal('images/Design 1.jpg', 'Design 1', 'A creative digital artwork made for our client.')">
+      <img src="images/Design 1.jpg" alt="Design 1">
+      <p>Design 1</p>
+    </div>
+
+    <div class="portfolio-item" onclick="openModal('images/Design 2.jpg', 'Design 2', 'Bussines Flyer Design.')">
+      <img src="images/Design 2.jpg" alt="Design 2">
+      <p>Design 2</p>
+    </div>
+
+    <div class="portfolio-item" onclick="openModal('images/Design 3.jpg', 'Design 3', 'Creative Branding Design.')">
+      <img src="images/Design 3.jpg" alt="Design 2">
+      <p>Design 2</p>
+    </div>
+
+    <div class="portfolio-item" onclick="openModal('images/Design 4.jpg', 'Design 4', 'Minimalist Poster Concept.')">
+      <img src="images/Design 4.jpg" alt="Design 2">
+      <p>Design 2</p>
+    </div>
+
+    <div class="portfolio-item" onclick="openModal('images/Design 5.jpg', 'Design 5', 'Creative Branding Design.')">
+      <img src="images/Design 5.jpg" alt="Design 2">
+      <p>Design 2</p>
+    </div>
+
+    <div class="portfolio-item" onclick="openModal('images/Design 6.jpg', 'Design 6', 'A modern branding concept in vibrant colors.')">
+      <img src="images/Design 6.jpg" alt="Design 3">
+      <p>Design 3</p>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="modalCaption"></div>
+</div>
+
+<style>
+  /* Portfolio grid */
+  .portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .portfolio-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .portfolio-item:hover {
+    transform: scale(1.05);
+  }
+  .portfolio-item img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Modal styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 60%;
+    max-width: 700px;
+    border-radius: 10px;
+  }
+  #modalCaption {
+    text-align: center;
+    color: white;
+    padding: 10px;
+  }
+  .close {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  function openModal(imgSrc, title, desc) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const caption = document.getElementById("modalCaption");
+    
+    modal.style.display = "block";
+    modalImg.src = imgSrc;
+    caption.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+</script>
+
 
     <section id="contact">
       <h2>Contact</h2>
