@@ -25,76 +25,53 @@
         background-color: #f9f9f9;
       }
 
-        .hero {
-  position: relative;
-  height: 80vh;
-  background-image: ("images/Facebook Banner.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-}
+      /* 🔥 Hero Section */
+      .hero {
+        position: relative;
+        height: 80vh;
+        background-image: url("images/Facebook Banner.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 0;
-}
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 0;
+      }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
 
-.hero h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
-}
-
-.hero p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-  margin-top: 10px;
-}
-
-.hero-btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 28px;
-  font-size: 1rem;
-  color: white;
-  background-color: #ff5e57;
-  border: none;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.hero-btn:hover {
-  background-color: #e04e4a;
-  transform: translateY(-3px);
-}
-
-      header h1 {
-        font-size: 3rem;
+      .hero h1 {
+        font-size: 3.5rem;
         letter-spacing: 2px;
       }
 
-      header p {
-        font-size: 1.2rem;
-        margin-top: 10px;
-        color: #ddd;
+      .hero h1 span {
+        color: #ff5e57; /* Red color for "Studio" */
       }
 
+      .hero p {
+        font-size: 1.3rem;
+        color: #f0f0f0;
+        margin-top: 10px;
+      }
+
+      /* 🔹 Navigation Bar */
       nav {
         background-color: #222;
         display: flex;
@@ -114,6 +91,7 @@
         color: #ff5e57;
       }
 
+      /* 🔹 Sections */
       section {
         max-width: 1000px;
         margin: 80px auto;
@@ -145,58 +123,70 @@
         font-size: 1.1rem;
       }
 
-      /* Gallery styles */
-      .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      /* 🔹 Portfolio Grid */
+      .portfolio-grid {
+        display: flex;
+        flex-wrap: wrap;
         gap: 20px;
+        justify-content: center;
         margin-top: 40px;
       }
 
-      .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      .portfolio-item {
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s;
       }
 
-      .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-      }
-
-      .gallery-item:hover img {
+      .portfolio-item:hover {
         transform: scale(1.05);
       }
 
-      .caption {
-        position: absolute;
-        bottom: 0;
+      .portfolio-item img {
+        width: 250px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* 🔹 Modal Popup */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        padding-top: 100px;
         left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.6);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 60%;
+        max-width: 700px;
+        border-radius: 10px;
+      }
+
+      #modalCaption {
+        text-align: center;
         color: white;
-        text-align: center;
         padding: 10px;
-        font-size: 1rem;
-        opacity: 0;
-        transition: opacity 0.3s ease;
       }
 
-      .gallery-item:hover .caption {
-        opacity: 1;
+      .close {
+        position: absolute;
+        top: 40px;
+        right: 60px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
       }
 
-      footer {
-        text-align: center;
-        padding: 30px;
-        background-color: #222;
-        color: #aaa;
-        font-size: 0.9rem;
-      }
-
+      /* 🔹 Contact + Footer */
       .contact-info {
         text-align: center;
         margin-top: 20px;
@@ -232,9 +222,17 @@
         background-color: #ff5e57;
       }
 
+      footer {
+        text-align: center;
+        padding: 30px;
+        background-color: #222;
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
       @media (max-width: 600px) {
-        header h1 {
-          font-size: 2rem;
+        .hero h1 {
+          font-size: 2.2rem;
         }
 
         nav {
@@ -245,16 +243,15 @@
     </style>
   </head>
   <body>
+    <!-- 🔥 Hero Banner -->
     <header class="hero">
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <h1>ArtFlareStudio</h1>
-    <p>create pixels into a masterpiece.</p>
-    <a href="#portfolio" class="hero-btn">View My Work</a>
-  </div>
-</header>
+      <div class="hero-content">
+        <h1>ArtFlare<span>Studio</span></h1>
+        <p>create pixels into a masterpiece.</p>
+      </div>
+    </header>
 
-
+    <!-- 🔹 Navigation -->
     <nav>
       <a href="#about">About</a>
       <a href="#design">Design</a>
@@ -262,6 +259,7 @@
       <a href="#contact">Contact</a>
     </nav>
 
+    <!-- 🔹 About -->
     <section id="about">
       <h2>About</h2>
       <p>
@@ -271,6 +269,7 @@
       </p>
     </section>
 
+    <!-- 🔹 Design -->
     <section id="design">
       <h2>Design</h2>
       <p>
@@ -279,126 +278,52 @@
       </p>
     </section>
 
-    <!-- Portfolio Section -->
-   <section id="portfolio" class="portfolio">
-  <h2>Portfolio</h2>
-  <p>Some of our recent creations and digital artwork.</p>
+    <!-- 🔹 Portfolio -->
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <p>Some of our recent creations and digital artwork.</p>
 
-  <div class="portfolio-grid">
-    <div class="portfolio-item" onclick="openModal('images/Design 1.jpg', 'Design 1', 'A creative digital artwork made for our client.')">
-      <img src="images/Design 1.jpg" alt="Design 1">
-      <p>Design 1</p>
+      <div class="portfolio-grid">
+        <div class="portfolio-item" onclick="openModal('images/Design 1.jpg', 'Design 1', 'A creative digital artwork made for our client.')">
+          <img src="images/Design 1.jpg" alt="Design 1" />
+          <p>Design 1</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openModal('images/Design 2.jpg', 'Design 2', 'Business Flyer Design.')">
+          <img src="images/Design 2.jpg" alt="Design 2" />
+          <p>Design 2</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openModal('images/Design 3.jpg', 'Design 3', 'Creative Branding Design.')">
+          <img src="images/Design 3.jpg" alt="Design 3" />
+          <p>Design 3</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openModal('images/Design 4.jpg', 'Design 4', 'Minimalist Poster Concept.')">
+          <img src="images/Design 4.jpg" alt="Design 4" />
+          <p>Design 4</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openModal('images/Design 5.jpg', 'Design 5', 'Creative Branding Design.')">
+          <img src="images/Design 5.jpg" alt="Design 5" />
+          <p>Design 5</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openModal('images/Design 6.jpg', 'Design 6', 'A modern branding concept in vibrant colors.')">
+          <img src="images/Design 6.jpg" alt="Design 6" />
+          <p>Design 6</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage" />
+      <div id="modalCaption"></div>
     </div>
 
-    <div class="portfolio-item" onclick="openModal('images/Design 2.jpg', 'Design 2', 'Bussines Flyer Design.')">
-      <img src="images/Design 2.jpg" alt="Design 2">
-      <p>Design 2</p>
-    </div>
-
-    <div class="portfolio-item" onclick="openModal('images/Design 3.jpg', 'Design 3', 'Creative Branding Design.')">
-      <img src="images/Design 3.jpg" alt="Design 2">
-      <p>Design 2</p>
-    </div>
-
-    <div class="portfolio-item" onclick="openModal('images/Design 4.jpg', 'Design 4', 'Minimalist Poster Concept.')">
-      <img src="images/Design 4.jpg" alt="Design 2">
-      <p>Design 2</p>
-    </div>
-
-    <div class="portfolio-item" onclick="openModal('images/Design 5.jpg', 'Design 5', 'Creative Branding Design.')">
-      <img src="images/Design 5.jpg" alt="Design 2">
-      <p>Design 2</p>
-    </div>
-
-    <div class="portfolio-item" onclick="openModal('images/Design 6.jpg', 'Design 6', 'A modern branding concept in vibrant colors.')">
-      <img src="images/Design 6.jpg" alt="Design 3">
-      <p>Design 3</p>
-    </div>
-  </div>
-</section>
-
-<!-- Modal -->
-<div id="imageModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImage">
-  <div id="modalCaption"></div>
-</div>
-
-<style>
-  /* Portfolio grid */
-  .portfolio-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  .portfolio-item {
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  .portfolio-item:hover {
-    transform: scale(1.05);
-  }
-  .portfolio-item img {
-    width: 250px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-
-  /* Modal styling */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.8);
-  }
-  .modal-content {
-    margin: auto;
-    display: block;
-    width: 60%;
-    max-width: 700px;
-    border-radius: 10px;
-  }
-  #modalCaption {
-    text-align: center;
-    color: white;
-    padding: 10px;
-  }
-  .close {
-    position: absolute;
-    top: 40px;
-    right: 60px;
-    color: white;
-    font-size: 40px;
-    cursor: pointer;
-  }
-</style>
-
-<script>
-  function openModal(imgSrc, title, desc) {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const caption = document.getElementById("modalCaption");
-    
-    modal.style.display = "block";
-    modalImg.src = imgSrc;
-    caption.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
-  }
-
-  function closeModal() {
-    document.getElementById("imageModal").style.display = "none";
-  }
-</script>
-
-
+    <!-- 🔹 Contact -->
     <section id="contact">
       <h2>Contact</h2>
       <p>
@@ -407,11 +332,19 @@
       </p>
 
       <div class="contact-info">
-        <p>Email us at: <a href="mailto:artflarestudio@gmail.com">artflarestudio@gmail.com</a></p>
+        <p>
+          Email us at:
+          <a href="mailto:artflarestudio@gmail.com"
+            >artflarestudio@gmail.com</a
+          >
+        </p>
       </div>
 
       <div class="social-icons">
-        <a href="https://web.facebook.com/profile.php?id=61581888640457#" target="_blank" aria-label="Facebook"
+        <a
+          href="https://web.facebook.com/profile.php?id=61581888640457#"
+          target="_blank"
+          aria-label="Facebook"
           ><i class="fab fa-facebook-f"></i
         ></a>
         <a href="https://tiktok.com" target="_blank" aria-label="TikTok"
@@ -426,12 +359,23 @@
       </div>
     </section>
 
+    <!-- 🔹 Footer -->
     <footer>© 2025 ArtFlareStudio — All rights reserved.</footer>
+
+    <script>
+      function openModal(imgSrc, title, desc) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const caption = document.getElementById("modalCaption");
+
+        modal.style.display = "block";
+        modalImg.src = imgSrc;
+        caption.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
+      }
+
+      function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+      }
+    </script>
   </body>
 </html>
-
-
-
-
-
-
